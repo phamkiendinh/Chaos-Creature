@@ -1,0 +1,73 @@
+[gd_scene load_steps=4 format=3 uid="uid://c7dsmxtqvfh34"]
+
+[ext_resource type="Script" path="res://Enemy/enemy.gd" id="1_2ynq5"]
+[ext_resource type="Theme" uid="uid://bb1vin8cvivjc" path="res://Hero/life_point_theme.tres" id="2_wxlga"]
+[ext_resource type="Theme" uid="uid://csbc2ppctktkp" path="res://Hero/rune_theme.tres" id="3_684u6"]
+
+[node name="Enemy" type="Node2D"]
+position = Vector2(50, 0)
+script = ExtResource("1_2ynq5")
+
+[node name="Ability" type="GridContainer" parent="."]
+offset_right = 40.0
+offset_bottom = 44.0
+
+[node name="Ability1" type="Button" parent="Ability"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Ability2" type="Button" parent="Ability"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Ability3" type="Button" parent="Ability"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Ability4" type="Button" parent="Ability"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="LifePoint" type="ProgressBar" parent="."]
+offset_left = 5.0
+offset_top = 562.0
+offset_right = 205.0
+offset_bottom = 592.0
+theme = ExtResource("2_wxlga")
+step = 0.1
+value = 100.0
+show_percentage = false
+
+[node name="Number" type="RichTextLabel" parent="LifePoint"]
+layout_mode = 0
+offset_left = 76.0
+offset_top = 5.0
+offset_right = 190.0
+offset_bottom = 28.0
+text = "100
+"
+fit_content = true
+
+[node name="Rune" type="ProgressBar" parent="."]
+offset_left = 5.0
+offset_top = 607.0
+offset_right = 205.0
+offset_bottom = 637.0
+theme = ExtResource("3_684u6")
+max_value = 7.0
+value = 1.0
+show_percentage = false
+
+[node name="Number" type="RichTextLabel" parent="Rune"]
+layout_mode = 0
+offset_left = 90.0
+offset_top = 5.0
+offset_right = 150.0
+offset_bottom = 45.0
+
+[node name="EnemyPlace" type="Node2D" parent="."]
+
+[connection signal="pressed" from="Ability/Ability1" to="." method="_on_ability_1_pressed"]
+[connection signal="pressed" from="Ability/Ability2" to="." method="_on_ability_2_pressed"]
+[connection signal="pressed" from="Ability/Ability3" to="." method="_on_ability_3_pressed"]
+[connection signal="pressed" from="Ability/Ability4" to="." method="_on_ability_4_pressed"]

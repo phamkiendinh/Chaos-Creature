@@ -1,0 +1,39 @@
+[gd_scene load_steps=5 format=3 uid="uid://djhvtkwhoum86"]
+
+[ext_resource type="Script" path="res://BattleScene/Animation/aoeheal_anim.gd" id="1_scmgu"]
+[ext_resource type="Texture2D" uid="uid://btbke8ad22okd" path="res://BattleScene/Animation/aoeheal.png" id="2_k81we"]
+
+[sub_resource type="Animation" id="Animation_n7qg4"]
+resource_name = "aoeheal_anim"
+length = 0.34
+step = 0.04
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.04, 0.08, 0.12, 0.16, 0.2, 0.24, 0.28, 0.32),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3, 4, 5, 6, 7, 8]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_1q7g3"]
+_data = {
+"aoeheal_anim": SubResource("Animation_n7qg4")
+}
+
+[node name="aoeheal_anim" type="Node2D"]
+script = ExtResource("1_scmgu")
+
+[node name="aoeheal" type="Sprite2D" parent="."]
+texture = ExtResource("2_k81we")
+hframes = 9
+frame = 8
+
+[node name="aoehealAnimPlayer" type="AnimationPlayer" parent="aoeheal"]
+libraries = {
+"": SubResource("AnimationLibrary_1q7g3")
+}

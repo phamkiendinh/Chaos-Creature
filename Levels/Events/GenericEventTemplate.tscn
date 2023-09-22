@@ -1,0 +1,59 @@
+[gd_scene load_steps=8 format=3 uid="uid://dlmedgakctf68"]
+
+[ext_resource type="Script" path="res://Levels/Events/generic_event_template.gd" id="1_0ltse"]
+[ext_resource type="Texture2D" uid="uid://dgnv4byl8c2po" path="res://Levels/BG/mumu1.jpg" id="2_0x3sl"]
+[ext_resource type="Script" path="res://Levels/Events/event_bg.gd" id="3_1i6su"]
+[ext_resource type="Script" path="res://Levels/Events/margin_container_event_button.gd" id="4_njdn1"]
+[ext_resource type="PackedScene" uid="uid://b31efidcr1go4" path="res://Levels/Buttons/EventButton.tscn" id="5_i6rwd"]
+[ext_resource type="Script" path="res://animated_label.gd" id="7_oqxaf"]
+
+[sub_resource type="Theme" id="Theme_nkrat"]
+
+[node name="GenericEventTemplate" type="Node2D"]
+script = ExtResource("1_0ltse")
+
+[node name="Mumu1" type="Sprite2D" parent="."]
+modulate = Color(1, 1, 1, 0.313726)
+position = Vector2(1494, 949)
+scale = Vector2(1, 0.942)
+texture = ExtResource("2_0x3sl")
+script = ExtResource("3_1i6su")
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+offset_top = 821.0
+offset_right = 1922.0
+offset_bottom = 1102.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+script = ExtResource("4_njdn1")
+
+[node name="GridContainer" type="GridContainer" parent="MarginContainer"]
+layout_mode = 2
+columns = 2
+
+[node name="EventButton" parent="MarginContainer/GridContainer" instance=ExtResource("5_i6rwd")]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="EventButton2" parent="MarginContainer/GridContainer" instance=ExtResource("5_i6rwd")]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="FlavorText" type="RichTextLabel" parent="."]
+offset_left = 82.0
+offset_top = 79.0
+offset_right = 1092.0
+offset_bottom = 434.0
+size_flags_horizontal = 3
+theme = SubResource("Theme_nkrat")
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/normal_font_size = 20
+text = "Placeholder Text"
+script = ExtResource("7_oqxaf")
+
+[connection signal="pressed" from="MarginContainer/GridContainer/EventButton" to="." method="_on_event_button_pressed"]
+[connection signal="pressed" from="MarginContainer/GridContainer/EventButton2" to="." method="_on_event_button_2_pressed"]
+[connection signal="finished" from="FlavorText" to="." method="_on_flavor_text_finished"]

@@ -1,0 +1,9 @@
+[gd_resource type="Theme" load_steps=3 format=3 uid="uid://n2aucpfgugis"]
+
+[ext_resource type="StyleBox" uid="uid://bivv3sim3flqm" path="res://Levels/Themes/new_style_box_flat.tres" id="1_syt1l"]
+[ext_resource type="StyleBox" uid="uid://c3s226yysxayv" path="res://Levels/Themes/NormalButtonWithTopLine.tres" id="2_b64pm"]
+
+[resource]
+Button/font_sizes/font_size = 28
+Button/styles/hover = ExtResource("1_syt1l")
+Button/styles/normal = ExtResource("2_b64pm")

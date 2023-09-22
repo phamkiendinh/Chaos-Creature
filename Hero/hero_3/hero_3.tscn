@@ -1,0 +1,85 @@
+[gd_scene load_steps=12 format=3 uid="uid://bfarnofk3fo43"]
+
+[ext_resource type="Script" path="res://Hero/hero_3/hero_3.gd" id="1_db0ex"]
+[ext_resource type="Texture2D" uid="uid://dk3156f0lol0f" path="res://Hero/hero_3/Actor2-7 sheet.png" id="2_fv7dr"]
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_ctp3c"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_to6j0"]
+atlas = ExtResource("2_fv7dr")
+region = Rect2(1002, 200, 334, 200)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_e63tp"]
+atlas = ExtResource("2_fv7dr")
+region = Rect2(1336, 200, 334, 200)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_80f6g"]
+atlas = ExtResource("2_fv7dr")
+region = Rect2(1670, 200, 334, 200)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_k75tn"]
+atlas = ExtResource("2_fv7dr")
+region = Rect2(0, 0, 334, 200)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rb0lu"]
+atlas = ExtResource("2_fv7dr")
+region = Rect2(334, 0, 334, 200)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kjc1o"]
+atlas = ExtResource("2_fv7dr")
+region = Rect2(668, 0, 334, 200)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_gxqw5"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_to6j0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_e63tp")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_80f6g")
+}],
+"loop": true,
+"name": &"Attack",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_k75tn")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rb0lu")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kjc1o")
+}],
+"loop": true,
+"name": &"Idle",
+"speed": 5.0
+}]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_20u4a"]
+radius = 57.43
+height = 200.99
+
+[node name="Hero3" type="CharacterBody2D"]
+position = Vector2(100, 100)
+script = ExtResource("1_db0ex")
+
+[node name="Sprite2D" type="StaticBody2D" parent="."]
+position = Vector2(0, 100)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Sprite2D"]
+shape = SubResource("WorldBoundaryShape2D_ctp3c")
+
+[node name="CharacterBody2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_gxqw5")
+animation = &"Attack"
+autoplay = "Idle"
+frame_progress = 0.830653
+flip_h = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CapsuleShape2D_20u4a")

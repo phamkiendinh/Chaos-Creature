@@ -1,0 +1,283 @@
+[gd_scene load_steps=17 format=3 uid="uid://dy6xkfhy8r5sd"]
+
+[ext_resource type="PackedScene" uid="uid://bbqt43jbxj24m" path="res://Hero/Hero.tscn" id="1_dn2ty"]
+[ext_resource type="Script" path="res://Player/HeroManagement/hero_management.gd" id="1_wnnce"]
+[ext_resource type="Texture2D" uid="uid://c1b4k1nse2awh" path="res://Assets/Backgrounds/midgard/midgard.png" id="2_p2plv"]
+[ext_resource type="Texture2D" uid="uid://d2js1xqm8qpm3" path="res://Assets/Icons/back.png" id="3_bl1lf"]
+[ext_resource type="Texture2D" uid="uid://dyvvkytclg7po" path="res://Assets/CardBorders/card_enemy_back.png" id="3_urddm"]
+[ext_resource type="LabelSettings" uid="uid://dylj1rtt5h135" path="res://Player/PlayerField/player_field.tres" id="4_3ywb3"]
+[ext_resource type="Texture2D" uid="uid://b0txgsnxdxxej" path="res://Assets/Backgrounds/battle_background(1).png" id="5_vftbo"]
+[ext_resource type="Shader" path="res://Player/PlayerField/card_description.gdshader" id="15_1bby8"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ydm6r"]
+bg_color = Color(0.866667, 0.933333, 0.215686, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.164706, 0.764706, 0.972549, 1)
+corner_radius_top_left = 2
+corner_radius_top_right = 2
+corner_radius_bottom_right = 2
+corner_radius_bottom_left = 2
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_12gac"]
+bg_color = Color(0.862745, 0.427451, 0.67451, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.203922, 0.843137, 0.14902, 1)
+corner_radius_top_left = 2
+corner_radius_top_right = 2
+corner_radius_bottom_right = 2
+corner_radius_bottom_left = 2
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_bfepa"]
+bg_color = Color(0.811765, 0.701961, 0.133333, 1)
+border_width_left = 5
+border_width_top = 5
+border_width_right = 5
+border_width_bottom = 5
+border_color = Color(0.8, 0.52549, 0.415686, 1)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_yw5lg"]
+bg_color = Color(0.976471, 0.231373, 0.764706, 1)
+border_width_left = 5
+border_width_top = 5
+border_width_right = 5
+border_width_bottom = 5
+border_color = Color(0.937255, 0.784314, 0.313726, 1)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ln1v3"]
+bg_color = Color(0.109804, 0.0431373, 0.207843, 1)
+border_width_left = 4
+border_width_top = 4
+border_width_right = 4
+border_width_bottom = 4
+border_color = Color(0.768627, 0.839216, 0.219608, 1)
+corner_radius_top_left = 4
+corner_radius_top_right = 4
+corner_radius_bottom_right = 4
+corner_radius_bottom_left = 4
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_j0q17"]
+shader = ExtResource("15_1bby8")
+shader_parameter/color = Quaternion(1, 0, 0, 1)
+shader_parameter/width = 2.0
+shader_parameter/pattern = 0
+shader_parameter/inside = true
+shader_parameter/add_margins = true
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_p5tl5"]
+content_margin_left = 5.0
+content_margin_top = 5.0
+content_margin_right = 5.0
+content_margin_bottom = 5.0
+bg_color = Color(0.976471, 0.964706, 0, 1)
+border_width_left = 3
+border_width_top = 3
+border_width_right = 3
+border_width_bottom = 3
+border_color = Color(1, 0.301961, 0, 1)
+border_blend = true
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_rdvjp"]
+content_margin_left = 5.0
+content_margin_top = 5.0
+content_margin_right = 5.0
+content_margin_bottom = 5.0
+bg_color = Color(0, 0, 0, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+corner_detail = 15
+
+[node name="HeroManagement" type="Node2D"]
+light_mask = 1023
+script = ExtResource("1_wnnce")
+
+[node name="Background" type="Sprite2D" parent="."]
+self_modulate = Color(1, 0.403922, 0.458824, 1)
+position = Vector2(4, 1)
+scale = Vector2(2.74531, 1.92604)
+texture = ExtResource("2_p2plv")
+centered = false
+
+[node name="Hero" parent="." instance=ExtResource("1_dn2ty")]
+
+[node name="ArtifactRow" type="VBoxContainer" parent="."]
+offset_right = 225.0
+offset_bottom = 683.0
+
+[node name="Slot1" type="TextureButton" parent="ArtifactRow"]
+layout_mode = 2
+size_flags_vertical = 3
+texture_normal = ExtResource("3_urddm")
+ignore_texture_size = true
+stretch_mode = 0
+
+[node name="Slot2" type="TextureButton" parent="ArtifactRow"]
+layout_mode = 2
+size_flags_vertical = 3
+texture_normal = ExtResource("3_urddm")
+ignore_texture_size = true
+stretch_mode = 0
+
+[node name="Slot3" type="TextureButton" parent="ArtifactRow"]
+layout_mode = 2
+size_flags_vertical = 3
+texture_normal = ExtResource("3_urddm")
+ignore_texture_size = true
+stretch_mode = 0
+
+[node name="Slot4" type="TextureButton" parent="ArtifactRow"]
+layout_mode = 2
+size_flags_vertical = 3
+texture_normal = ExtResource("3_urddm")
+ignore_texture_size = true
+stretch_mode = 0
+
+[node name="Slot5" type="TextureButton" parent="ArtifactRow"]
+layout_mode = 2
+size_flags_vertical = 3
+texture_normal = ExtResource("3_urddm")
+ignore_texture_size = true
+stretch_mode = 0
+
+[node name="BagContainer" type="TabContainer" parent="."]
+offset_right = 40.0
+offset_bottom = 40.0
+use_hidden_tabs_for_min_size = true
+
+[node name="Artifact" type="ScrollContainer" parent="BagContainer"]
+layout_mode = 2
+
+[node name="Content" type="GridContainer" parent="BagContainer/Artifact"]
+layout_mode = 2
+
+[node name="Elixir" type="ScrollContainer" parent="BagContainer"]
+visible = false
+layout_mode = 2
+
+[node name="Content" type="GridContainer" parent="BagContainer/Elixir"]
+layout_mode = 2
+
+[node name="Material" type="ScrollContainer" parent="BagContainer"]
+visible = false
+layout_mode = 2
+
+[node name="Content" type="GridContainer" parent="BagContainer/Material"]
+layout_mode = 2
+
+[node name="PopUp" type="PopupMenu" parent="."]
+visible = true
+always_on_top = true
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_styles/panel = SubResource("StyleBoxFlat_ydm6r")
+theme_override_styles/hover = SubResource("StyleBoxFlat_12gac")
+item_count = 1
+item_0/text = ""
+item_0/id = 0
+
+[node name="Back" type="Button" parent="."]
+offset_right = 512.0
+offset_bottom = 512.0
+theme_override_styles/normal = SubResource("StyleBoxFlat_bfepa")
+theme_override_styles/hover = SubResource("StyleBoxFlat_yw5lg")
+toggle_mode = true
+action_mode = 0
+icon = ExtResource("3_bl1lf")
+clip_text = true
+icon_alignment = 1
+expand_icon = true
+
+[node name="Window" type="Panel" parent="."]
+offset_right = 40.0
+offset_bottom = 40.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_ln1v3")
+
+[node name="Background" type="Sprite2D" parent="Window"]
+texture = ExtResource("5_vftbo")
+centered = false
+
+[node name="Container" type="VBoxContainer" parent="Window"]
+layout_mode = 0
+offset_right = 184.0
+offset_bottom = 105.0
+theme_override_constants/separation = 3
+
+[node name="Image" type="TextureButton" parent="Window/Container"]
+material = SubResource("ShaderMaterial_j0q17")
+clip_contents = true
+layout_mode = 2
+size_flags_vertical = 3
+ignore_texture_size = true
+stretch_mode = 0
+
+[node name="Container" type="VBoxContainer" parent="Window/Container"]
+layout_mode = 2
+size_flags_horizontal = 3
+alignment = 1
+
+[node name="Name" type="HBoxContainer" parent="Window/Container/Container"]
+layout_mode = 2
+size_flags_vertical = 3
+alignment = 1
+
+[node name="Element" type="Label" parent="Window/Container/Container/Name"]
+layout_mode = 2
+theme_override_styles/normal = SubResource("StyleBoxFlat_p5tl5")
+text = "Name"
+label_settings = ExtResource("4_3ywb3")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Text" type="RichTextLabel" parent="Window/Container/Container/Name"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_font_sizes/normal_font_size = 30
+theme_override_styles/normal = SubResource("StyleBoxFlat_rdvjp")
+bbcode_enabled = true
+text = "Name"
+
+[node name="Description" type="HBoxContainer" parent="Window/Container/Container"]
+layout_mode = 2
+size_flags_vertical = 3
+alignment = 1
+
+[node name="Element" type="Label" parent="Window/Container/Container/Description"]
+layout_mode = 2
+theme_override_styles/normal = SubResource("StyleBoxFlat_p5tl5")
+text = "Desp  "
+label_settings = ExtResource("4_3ywb3")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Text" type="RichTextLabel" parent="Window/Container/Container/Description"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_font_sizes/normal_font_size = 30
+theme_override_styles/normal = SubResource("StyleBoxFlat_rdvjp")
+bbcode_enabled = true
+text = "Name"
+
+[connection signal="index_pressed" from="PopUp" to="." method="_on_pop_up_index_pressed"]
+[connection signal="pressed" from="Back" to="." method="_on_back_pressed"]

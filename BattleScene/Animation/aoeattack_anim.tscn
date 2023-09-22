@@ -1,0 +1,39 @@
+[gd_scene load_steps=5 format=3 uid="uid://5wwillrbsd0v"]
+
+[ext_resource type="Script" path="res://BattleScene/Animation/aoeattack_anim.gd" id="1_uapq6"]
+[ext_resource type="Texture2D" uid="uid://tk13x1tdhkhb" path="res://BattleScene/Animation/aoeattack.png" id="2_ba7yt"]
+
+[sub_resource type="Animation" id="Animation_o12p5"]
+resource_name = "aoeattack_anim"
+length = 0.35
+step = 0.04
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0.001, 0.04, 0.08, 0.12, 0.16, 0.2, 0.24, 0.28, 0.32),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3, 4, 5, 6, 7, 8]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_m02qn"]
+_data = {
+"aoeattack_anim": SubResource("Animation_o12p5")
+}
+
+[node name="aoeattack_anim" type="Node2D"]
+script = ExtResource("1_uapq6")
+
+[node name="aoeattack" type="Sprite2D" parent="."]
+texture = ExtResource("2_ba7yt")
+hframes = 9
+frame = 8
+
+[node name="aoeattackAnimPlayer" type="AnimationPlayer" parent="aoeattack"]
+libraries = {
+"": SubResource("AnimationLibrary_m02qn")
+}

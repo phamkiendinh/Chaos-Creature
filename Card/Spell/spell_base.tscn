@@ -1,0 +1,100 @@
+[gd_scene load_steps=8 format=3 uid="uid://iwm63x1kicwo"]
+
+[ext_resource type="Script" path="res://Card/Spell/spell_base.gd" id="1_akqnb"]
+[ext_resource type="Texture2D" uid="uid://c3icimoqo6mbf" path="res://Assets/CardBorders/cardborder_normal_red.png" id="2_8p3db"]
+[ext_resource type="Texture2D" uid="uid://bshdtggqgvh26" path="res://Assets/CardBorders/rune_1.png" id="2_nfxlh"]
+[ext_resource type="Texture2D" uid="uid://cjc5jebb2wavf" path="res://Assets/CardBorders/cardborder_hover.png" id="3_2cl5j"]
+[ext_resource type="Texture2D" uid="uid://bj2svvmgyxda7" path="res://Assets/CardBorders/card_back.png" id="4_37nxy"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_oh2tc"]
+size = Vector2(213, 285)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_tlq7k"]
+
+[node name="SpellBase" type="MarginContainer"]
+offset_right = 229.0
+offset_bottom = 300.0
+script = ExtResource("1_akqnb")
+metadata/_edit_group_ = true
+
+[node name="Spell" type="Area2D" parent="."]
+
+[node name="SpellArea" type="CollisionShape2D" parent="Spell"]
+position = Vector2(113.5, 151.5)
+shape = SubResource("RectangleShape2D_oh2tc")
+
+[node name="Background" type="ColorRect" parent="."]
+layout_mode = 2
+color = Color(0.501961, 0.501961, 0.501961, 1)
+
+[node name="Layout" type="VBoxContainer" parent="."]
+layout_mode = 2
+
+[node name="TopGap" type="HBoxContainer" parent="Layout"]
+layout_mode = 2
+
+[node name="NameContainer" type="HBoxContainer" parent="Layout"]
+layout_mode = 2
+alignment = 1
+
+[node name="LeftGap" type="MarginContainer" parent="Layout/NameContainer"]
+layout_mode = 2
+
+[node name="Name" type="RichTextLabel" parent="Layout/NameContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="ImageContainer" type="HBoxContainer" parent="Layout"]
+layout_mode = 2
+
+[node name="LeftGap" type="MarginContainer" parent="Layout/ImageContainer"]
+layout_mode = 2
+
+[node name="Container" type="HBoxContainer" parent="Layout/ImageContainer"]
+custom_minimum_size = Vector2(0, 50)
+layout_mode = 2
+
+[node name="Image" type="Sprite2D" parent="Layout/ImageContainer/Container"]
+material = SubResource("ShaderMaterial_tlq7k")
+centered = false
+
+[node name="Description" type="HBoxContainer" parent="Layout"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="LeftGap" type="MarginContainer" parent="Layout/Description"]
+layout_mode = 2
+
+[node name="Content" type="MarginContainer" parent="Layout/Description"]
+layout_mode = 2
+
+[node name="Label" type="RichTextLabel" parent="Layout/Description/Content"]
+layout_mode = 2
+bbcode_enabled = true
+fit_content = true
+scroll_following = true
+tab_size = 0
+
+[node name="RightGap" type="MarginContainer" parent="Layout/Description"]
+layout_mode = 2
+
+[node name="BorderImage" type="TextureRect" parent="."]
+layout_mode = 2
+texture = ExtResource("2_8p3db")
+
+[node name="Focus" type="TextureButton" parent="."]
+layout_mode = 2
+texture_hover = ExtResource("3_2cl5j")
+ignore_texture_size = true
+stretch_mode = 0
+
+[node name="Rune" type="Sprite2D" parent="."]
+texture = ExtResource("2_nfxlh")
+
+[node name="CardBack" type="Sprite2D" parent="."]
+texture = ExtResource("4_37nxy")
+centered = false
+
+[connection signal="mouse_entered" from="Focus" to="." method="_on_focus_mouse_entered"]
+[connection signal="mouse_exited" from="Focus" to="." method="_on_focus_mouse_exited"]

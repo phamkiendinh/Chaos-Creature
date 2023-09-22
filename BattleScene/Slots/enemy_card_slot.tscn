@@ -1,0 +1,138 @@
+[gd_scene load_steps=6 format=3 uid="uid://2107ihkl757j"]
+
+[ext_resource type="Script" path="res://BattleScene/Slots/enemy_card_slot.gd" id="1_cm7rr"]
+[ext_resource type="PackedScene" uid="uid://b0sxrx20r3mgg" path="res://BattleScene/Slots/enemy_slot.tscn" id="2_or56n"]
+[ext_resource type="Theme" uid="uid://bb1vin8cvivjc" path="res://Hero/life_point_theme.tres" id="3_ey5i5"]
+[ext_resource type="Texture2D" uid="uid://dyvvkytclg7po" path="res://Assets/CardBorders/card_enemy_back.png" id="4_pylim"]
+[ext_resource type="PackedScene" uid="uid://c7dsmxtqvfh34" path="res://Enemy/Enemy.tscn" id="5_lgsn7"]
+
+[node name="EnemyField" type="Node2D"]
+script = ExtResource("1_cm7rr")
+
+[node name="Slot1" parent="." instance=ExtResource("2_or56n")]
+
+[node name="Slot2" parent="." instance=ExtResource("2_or56n")]
+
+[node name="Slot3" parent="." instance=ExtResource("2_or56n")]
+
+[node name="Slot4" parent="." instance=ExtResource("2_or56n")]
+
+[node name="Slot5" parent="." instance=ExtResource("2_or56n")]
+
+[node name="Slot6" parent="." instance=ExtResource("2_or56n")]
+
+[node name="LifePoint1" type="ProgressBar" parent="."]
+offset_left = 96.0
+offset_top = 116.0
+offset_right = 322.0
+offset_bottom = 167.0
+theme = ExtResource("3_ey5i5")
+show_percentage = false
+
+[node name="Number" type="RichTextLabel" parent="LifePoint1"]
+layout_mode = 0
+offset_left = 58.0
+offset_top = 2.0
+offset_right = 277.0
+offset_bottom = 49.0
+bbcode_enabled = true
+text = "[center]100[/center]"
+fit_content = true
+
+[node name="LifePoint2" type="ProgressBar" parent="."]
+offset_left = 97.0
+offset_top = 114.0
+offset_right = 321.0
+offset_bottom = 167.0
+theme = ExtResource("3_ey5i5")
+show_percentage = false
+
+[node name="Number" type="RichTextLabel" parent="LifePoint2"]
+layout_mode = 0
+offset_left = 57.0
+offset_top = 5.0
+offset_right = 279.0
+offset_bottom = 50.0
+bbcode_enabled = true
+text = "[center]100[/center]"
+fit_content = true
+
+[node name="LifePoint3" type="ProgressBar" parent="."]
+offset_left = 97.0
+offset_top = 114.0
+offset_right = 321.0
+offset_bottom = 166.0
+theme = ExtResource("3_ey5i5")
+show_percentage = false
+
+[node name="Number" type="RichTextLabel" parent="LifePoint3"]
+layout_mode = 0
+offset_left = 59.0
+offset_top = 5.0
+offset_right = 279.0
+offset_bottom = 48.0
+bbcode_enabled = true
+text = "[center]100[/center]"
+fit_content = true
+
+[node name="LifePoint4" type="ProgressBar" parent="."]
+offset_left = 97.0
+offset_top = 114.0
+offset_right = 321.0
+offset_bottom = 165.0
+theme = ExtResource("3_ey5i5")
+show_percentage = false
+
+[node name="Number" type="RichTextLabel" parent="LifePoint4"]
+layout_mode = 0
+offset_left = 57.0
+offset_top = 5.0
+offset_right = 277.0
+offset_bottom = 51.0
+bbcode_enabled = true
+text = "[center]100[/center]"
+fit_content = true
+
+[node name="LifePoint5" type="ProgressBar" parent="."]
+offset_left = 96.0
+offset_top = 114.0
+offset_right = 321.0
+offset_bottom = 165.0
+theme = ExtResource("3_ey5i5")
+show_percentage = false
+
+[node name="Number" type="RichTextLabel" parent="LifePoint5"]
+layout_mode = 0
+offset_left = 59.0
+offset_top = 1.0
+offset_right = 279.0
+offset_bottom = 53.0
+bbcode_enabled = true
+text = "[center]100[/center]"
+fit_content = true
+
+[node name="LifePoint6" type="ProgressBar" parent="."]
+offset_left = 97.0
+offset_top = 114.0
+offset_right = 321.0
+offset_bottom = 166.0
+theme = ExtResource("3_ey5i5")
+show_percentage = false
+
+[node name="Number" type="RichTextLabel" parent="LifePoint6"]
+layout_mode = 0
+offset_left = 47.0
+offset_top = 7.0
+offset_right = 115.0
+offset_bottom = 76.0
+bbcode_enabled = true
+text = "[center]100[/center]"
+fit_content = true
+
+[node name="Deck" type="Sprite2D" parent="."]
+rotation = -1.5708
+texture = ExtResource("4_pylim")
+
+[node name="Enemy" parent="." instance=ExtResource("5_lgsn7")]
+
+[node name="Hand" type="Node" parent="."]

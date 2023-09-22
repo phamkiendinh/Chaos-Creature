@@ -1,0 +1,30 @@
+[gd_scene load_steps=6 format=3 uid="uid://dmtlde8f6s363"]
+
+[ext_resource type="Script" path="res://Levels/Tutorial/tutorial_manager.gd" id="1_jmvog"]
+[ext_resource type="PackedScene" uid="uid://dj1wl3n1mikes" path="res://Levels/Map/Map.tscn" id="2_ymfyt"]
+[ext_resource type="Script" path="res://Levels/level_nodes.gd" id="3_d23et"]
+[ext_resource type="Script" path="res://addons/BTransition/Transitioner.gd" id="4_xxvnx"]
+[ext_resource type="Texture2D" uid="uid://bnefpa8fj1ufi" path="res://Assets/Backgrounds/midgard/midgard_4800.png" id="6_3lik0"]
+
+[node name="Manager" type="Node2D"]
+script = ExtResource("1_jmvog")
+
+[node name="Midgard4800" type="Sprite2D" parent="."]
+self_modulate = Color(0.647059, 0.819608, 0.968627, 0.313726)
+position = Vector2(778, 632)
+texture = ExtResource("6_3lik0")
+
+[node name="Map" parent="." instance=ExtResource("2_ymfyt")]
+position = Vector2(267, -22)
+
+[node name="LevelNodes" type="Node2D" parent="."]
+script = ExtResource("3_d23et")
+
+[node name="MapNodes" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Transitioner" type="Node" parent="."]
+script = ExtResource("4_xxvnx")

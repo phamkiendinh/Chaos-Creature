@@ -1,0 +1,208 @@
+[gd_scene load_steps=9 format=3 uid="uid://c3eyddrjti1w5"]
+
+[ext_resource type="Script" path="res://Deck/deck_management.gd" id="1_mnljd"]
+[ext_resource type="Texture2D" uid="uid://dqlwuul3w007u" path="res://Assets/Backgrounds/yggdrasil/yggdrasil_3.png" id="2_617lf"]
+[ext_resource type="Texture2D" uid="uid://d2js1xqm8qpm3" path="res://Assets/Icons/back.png" id="3_hrirw"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_qwplk"]
+bg_color = Color(0.917647, 0, 0.109804, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_canwn"]
+bg_color = Color(0.960784, 0.113725, 0.262745, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ib3cw"]
+bg_color = Color(0.396078, 0.972549, 0, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_7cn5j"]
+draw_center = false
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[sub_resource type="LabelSettings" id="LabelSettings_noe2b"]
+line_spacing = 0.0
+font_size = 40
+font_color = Color(1, 1, 0.45098, 1)
+outline_size = 5
+outline_color = Color(1, 0.435294, 1, 1)
+
+[node name="DeckManagement" type="Node2D"]
+script = ExtResource("1_mnljd")
+
+[node name="Background" type="Sprite2D" parent="."]
+scale = Vector2(0.998958, 0.5625)
+texture = ExtResource("2_617lf")
+centered = false
+
+[node name="TopContainer" type="HBoxContainer" parent="."]
+offset_right = 169.0
+offset_bottom = 40.0
+
+[node name="LeftMargin" type="MarginContainer" parent="TopContainer"]
+layout_mode = 2
+
+[node name="Left" type="VBoxContainer" parent="TopContainer"]
+layout_mode = 2
+
+[node name="TopMargin" type="MarginContainer" parent="TopContainer/Left"]
+layout_mode = 2
+
+[node name="Return" type="Button" parent="TopContainer/Left"]
+modulate = Color(0.862745, 1, 0, 1)
+layout_mode = 2
+theme_override_styles/normal = SubResource("StyleBoxFlat_qwplk")
+theme_override_styles/hover = SubResource("StyleBoxFlat_canwn")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_ib3cw")
+theme_override_styles/focus = SubResource("StyleBoxFlat_7cn5j")
+icon = ExtResource("3_hrirw")
+icon_alignment = 1
+expand_icon = true
+
+[node name="MiddleMargin" type="MarginContainer" parent="TopContainer"]
+layout_mode = 2
+
+[node name="Label" type="RichTextLabel" parent="TopContainer"]
+layout_mode = 2
+
+[node name="RightMargin" type="MarginContainer" parent="TopContainer"]
+layout_mode = 2
+
+[node name="Right" type="VBoxContainer" parent="TopContainer"]
+layout_mode = 2
+
+[node name="TopMargin" type="MarginContainer" parent="TopContainer/Right"]
+layout_mode = 2
+
+[node name="Save" type="Button" parent="TopContainer/Right"]
+modulate = Color(0.862745, 1, 0, 1)
+layout_mode = 2
+theme_override_styles/normal = SubResource("StyleBoxFlat_qwplk")
+theme_override_styles/hover = SubResource("StyleBoxFlat_canwn")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_ib3cw")
+theme_override_styles/focus = SubResource("StyleBoxFlat_7cn5j")
+text = "Save"
+
+[node name="PanelContainer" type="PanelContainer" parent="."]
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Label" type="Label" parent="PanelContainer"]
+layout_mode = 2
+text = "Deck Storage"
+label_settings = SubResource("LabelSettings_noe2b")
+horizontal_alignment = 1
+autowrap_mode = 3
+
+[node name="Panel" type="ScrollContainer" parent="PanelContainer"]
+layout_mode = 2
+follow_focus = true
+
+[node name="Content" type="GridContainer" parent="PanelContainer/Panel"]
+layout_mode = 2
+
+[node name="MenuContainer" type="MarginContainer" parent="."]
+offset_right = 79.0
+offset_bottom = 206.0
+
+[node name="Container" type="VBoxContainer" parent="MenuContainer"]
+layout_mode = 2
+
+[node name="Add" type="Button" parent="MenuContainer/Container"]
+modulate = Color(1, 0.152941, 0.117647, 1)
+layout_mode = 2
+text = "Add"
+
+[node name="AddAll" type="Button" parent="MenuContainer/Container"]
+modulate = Color(1, 0.152941, 0.117647, 1)
+layout_mode = 2
+text = "Add All"
+
+[node name="Remove" type="Button" parent="MenuContainer/Container"]
+modulate = Color(1, 0.152941, 0.117647, 1)
+layout_mode = 2
+text = "Remove"
+
+[node name="ClearAll" type="Button" parent="MenuContainer/Container"]
+modulate = Color(1, 0.152941, 0.117647, 1)
+layout_mode = 2
+text = "Clear All"
+
+[node name="DeckContainer" type="PanelContainer" parent="."]
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Label" type="Label" parent="DeckContainer"]
+layout_mode = 2
+text = "Player's Deck"
+label_settings = SubResource("LabelSettings_noe2b")
+horizontal_alignment = 1
+autowrap_mode = 3
+
+[node name="Deck" type="ScrollContainer" parent="DeckContainer"]
+layout_mode = 2
+follow_focus = true
+
+[node name="Content" type="GridContainer" parent="DeckContainer/Deck"]
+layout_mode = 2
+
+[node name="Light" type="DirectionalLight2D" parent="."]
+color = Color(0.982343, 0.982342, 0.982342, 1)
+energy = 16.0
+blend_mode = 2
+shadow_enabled = true
+height = 0.5
+
+[node name="HUD" type="Window" parent="."]
+transparent_bg = true
+mode = 2
+borderless = true
+
+[node name="Line" type="ColorRect" parent="HUD"]
+offset_right = 40.0
+offset_bottom = 40.0
+color = Color(1, 0, 0, 1)
+
+[node name="Text" type="RichTextLabel" parent="HUD"]
+offset_right = 40.0
+offset_bottom = 40.0
+theme_override_font_sizes/normal_font_size = 70
+bbcode_enabled = true
+text = "Place At Least 1 Monster & Spell Card In Your Deck"
+fit_content = true
+autowrap_mode = 0
+
+[connection signal="pressed" from="TopContainer/Left/Return" to="." method="_on_return_pressed"]
+[connection signal="pressed" from="TopContainer/Right/Save" to="." method="_on_save_pressed"]
+[connection signal="pressed" from="MenuContainer/Container/Add" to="." method="_on_add_pressed"]
+[connection signal="pressed" from="MenuContainer/Container/AddAll" to="." method="_on_add_all_pressed"]
+[connection signal="pressed" from="MenuContainer/Container/Remove" to="." method="_on_remove_pressed"]
+[connection signal="pressed" from="MenuContainer/Container/ClearAll" to="." method="_on_clear_pressed"]

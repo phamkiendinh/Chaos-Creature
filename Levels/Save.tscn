@@ -1,0 +1,28 @@
+[gd_scene load_steps=5 format=3 uid="uid://cg7besdt87g2c"]
+
+[ext_resource type="Script" path="res://Levels/save.gd" id="1_vt7pg"]
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_j31hv"]
+load_path = "res://.godot/imported/mumu3.jpg-94aca0a955448024e297919d0ed77dca.ctex"
+
+[sub_resource type="Theme" id="Theme_4vvwo"]
+
+[sub_resource type="SystemFont" id="SystemFont_cwybt"]
+
+[node name="Save" type="Node2D"]
+script = ExtResource("1_vt7pg")
+
+[node name="BG" type="Sprite2D" parent="."]
+position = Vector2(585, 319.5)
+scale = Vector2(0.232503, 0.215989)
+texture = SubResource("CompressedTexture2D_j31hv")
+
+[node name="Text" type="TextEdit" parent="."]
+offset_left = 74.0
+offset_top = 91.0
+offset_right = 605.0
+offset_bottom = 479.0
+theme = SubResource("Theme_4vvwo")
+theme_override_fonts/font = SubResource("SystemFont_cwybt")
+theme_override_font_sizes/font_size = 50
+highlight_all_occurrences = true

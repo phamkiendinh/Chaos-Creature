@@ -1,0 +1,198 @@
+[gd_scene load_steps=11 format=3 uid="uid://dnbpkosckjay4"]
+
+[ext_resource type="Script" path="res://Levels/drop_manager.gd" id="1_x5qct"]
+[ext_resource type="PackedScene" uid="uid://b6ury7c8utyed" path="res://Levels/Buttons/item_drops_button.tscn" id="2_uvcqv"]
+[ext_resource type="Script" path="res://Levels/to_level_chooser.gd" id="3_gvvlm"]
+[ext_resource type="Theme" uid="uid://n2aucpfgugis" path="res://Levels/Themes/DropManagerButton.tres" id="3_sfld8"]
+[ext_resource type="Script" path="res://Levels/Buttons/drop_option_margin_container.gd" id="3_sh01t"]
+[ext_resource type="StyleBox" uid="uid://c3s226yysxayv" path="res://Levels/Themes/NormalButtonWithTopLine.tres" id="4_ks33d"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_il46i"]
+bg_color = Color(0, 0, 0, 1)
+border_width_top = 1
+border_color = Color(1, 1, 1, 1)
+
+[sub_resource type="Animation" id="Animation_7nltx"]
+resource_name = "RESET"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ColorRect:size")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1917, 1079)]
+}
+tracks/1/type = "bezier"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("LevelChooser:position:x")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(866, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/2/type = "bezier"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("LevelChooser:position:y")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(845, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/3/type = "bezier"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("DropOptionMarginContainer:position:x")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/4/type = "bezier"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("DropOptionMarginContainer:position:y")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+
+[sub_resource type="Animation" id="Animation_qd7px"]
+resource_name = "drop_intro"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ColorRect:size")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.0001, 1),
+"transitions": PackedFloat32Array(1, 1, 0.203063),
+"update": 0,
+"values": [Vector2(1917, 1079), Vector2(1917, 66), Vector2(1917, 1084)]
+}
+tracks/1/type = "bezier"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("LevelChooser:position:x")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(866, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(1)
+}
+tracks/2/type = "bezier"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("LevelChooser:position:y")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"handle_modes": PackedInt32Array(0, 0),
+"points": PackedFloat32Array(1157, -0.25, 0, 0.25, 0, 845, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0, 1)
+}
+tracks/3/type = "bezier"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("DropOptionMarginContainer:position:x")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"handle_modes": PackedInt32Array(0, 0),
+"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0, 1)
+}
+tracks/4/type = "bezier"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("DropOptionMarginContainer:position:y")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"handle_modes": PackedInt32Array(0, 0),
+"points": PackedFloat32Array(-400, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0, 1)
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_bqtbm"]
+_data = {
+"RESET": SubResource("Animation_7nltx"),
+"drop_intro": SubResource("Animation_qd7px")
+}
+
+[node name="DropManager" type="Node2D"]
+script = ExtResource("1_x5qct")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+offset_right = 1917.0
+offset_bottom = 1079.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+color = Color(0.172549, 0.172549, 0.172549, 0.470588)
+
+[node name="ArtifactPool" type="Node2D" parent="."]
+
+[node name="LevelChooser" type="Button" parent="."]
+offset_left = 866.0
+offset_top = 845.0
+offset_right = 1107.0
+offset_bottom = 979.0
+theme = ExtResource("3_sfld8")
+theme_override_font_sizes/font_size = 25
+theme_override_styles/normal = ExtResource("4_ks33d")
+theme_override_styles/hover = SubResource("StyleBoxFlat_il46i")
+text = "Finish"
+script = ExtResource("3_gvvlm")
+
+[node name="DropOptionMarginContainer" type="MarginContainer" parent="."]
+offset_right = 1923.0
+offset_bottom = 793.0
+script = ExtResource("3_sh01t")
+
+[node name="DropOptionContainers" type="GridContainer" parent="DropOptionMarginContainer"]
+layout_mode = 2
+columns = 3
+
+[node name="ItemDropsButton" parent="DropOptionMarginContainer/DropOptionContainers" instance=ExtResource("2_uvcqv")]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme = ExtResource("3_sfld8")
+
+[node name="ItemDropsButton2" parent="DropOptionMarginContainer/DropOptionContainers" instance=ExtResource("2_uvcqv")]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme = ExtResource("3_sfld8")
+
+[node name="ItemDropsButton3" parent="DropOptionMarginContainer/DropOptionContainers" instance=ExtResource("2_uvcqv")]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme = ExtResource("3_sfld8")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_bqtbm")
+}
+
+[connection signal="pressed" from="LevelChooser" to="." method="_on_level_chooser_pressed"]
+[connection signal="pressed" from="DropOptionMarginContainer/DropOptionContainers/ItemDropsButton" to="." method="_on_item_drops_button_pressed"]
+[connection signal="pressed" from="DropOptionMarginContainer/DropOptionContainers/ItemDropsButton2" to="." method="_on_item_drops_button_2_pressed"]
+[connection signal="pressed" from="DropOptionMarginContainer/DropOptionContainers/ItemDropsButton3" to="." method="_on_item_drops_button_3_pressed"]

@@ -1,0 +1,21 @@
+[gd_scene load_steps=2 format=3 uid="uid://cipkycvm1xgbj"]
+
+[ext_resource type="Script" path="res://HUD/DrawPhase/DrawPhase.gd" id="1_ycvmd"]
+
+[node name="DrawPhase" type="Node2D"]
+script = ExtResource("1_ycvmd")
+
+[node name="Container" type="MarginContainer" parent="."]
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Color" type="ColorRect" parent="Container"]
+layout_mode = 2
+color = Color(1, 0.372549, 1, 1)
+
+[node name="Text" type="RichTextLabel" parent="Container"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+bbcode_enabled = true
+text = "Draw Phase"

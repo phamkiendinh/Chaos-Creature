@@ -1,0 +1,24 @@
+[gd_scene load_steps=3 format=3 uid="uid://bpfbtwth7rb2p"]
+
+[ext_resource type="Script" path="res://Levels/Map/map_node.gd" id="1_4xtun"]
+[ext_resource type="Theme" uid="uid://c6fllh4y8lmuq" path="res://Levels/Buttons/level_node_button.tres" id="1_j6jhg"]
+
+[node name="MapNode" type="Button"]
+offset_right = 209.0
+offset_bottom = 95.0
+theme = ExtResource("1_j6jhg")
+script = ExtResource("1_4xtun")
+
+[node name="StartPoint" type="ColorRect" parent="."]
+layout_mode = 0
+offset_left = 200.0
+offset_top = 40.0
+offset_right = 214.0
+offset_bottom = 51.0
+
+[node name="RecievePoint" type="ColorRect" parent="."]
+offset_top = 40.0
+offset_right = 14.0
+offset_bottom = 51.0
+
+[connection signal="pressed" from="." to="." method="_on_pressed"]

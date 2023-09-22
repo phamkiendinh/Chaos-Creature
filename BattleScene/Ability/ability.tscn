@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://3gn50y58usjc"]
+
+[ext_resource type="Script" path="res://BattleScene/Ability/ability.gd" id="1_g08rr"]
+
+[node name="Ability" type="Node"]
+script = ExtResource("1_g08rr")

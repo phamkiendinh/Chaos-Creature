@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://b31efidcr1go4"]
+
+[ext_resource type="Script" path="res://Levels/Buttons/event_button.gd" id="1_mhvat"]
+
+[node name="EventButton" type="Button"]
+script = ExtResource("1_mhvat")

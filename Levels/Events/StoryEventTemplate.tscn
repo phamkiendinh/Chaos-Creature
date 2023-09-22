@@ -1,0 +1,49 @@
+[gd_scene load_steps=4 format=3 uid="uid://bc3f37y1dphji"]
+
+[ext_resource type="Script" path="res://Levels/Events/margin_container_event_button.gd" id="1_gcbft"]
+[ext_resource type="Script" path="res://Levels/Events/StoryEventTemplate.gd" id="1_ihmu1"]
+[ext_resource type="PackedScene" uid="uid://b31efidcr1go4" path="res://Levels/Buttons/EventButton.tscn" id="2_6j5y7"]
+
+[node name="StoryEventTemplate" type="Node2D"]
+script = ExtResource("1_ihmu1")
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+offset_left = 7.0
+offset_top = 473.0
+offset_right = 1144.0
+offset_bottom = 660.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+script = ExtResource("1_gcbft")
+
+[node name="GridContainer" type="GridContainer" parent="MarginContainer"]
+layout_mode = 2
+columns = 2
+
+[node name="EventButton" parent="MarginContainer/GridContainer" instance=ExtResource("2_6j5y7")]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="EventButton2" parent="MarginContainer/GridContainer" instance=ExtResource("2_6j5y7")]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="Name" type="RichTextLabel" parent="."]
+offset_left = 107.0
+offset_top = 17.0
+offset_right = 1022.0
+offset_bottom = 98.0
+size_flags_horizontal = 3
+theme_override_font_sizes/normal_font_size = 24
+text = "Placeholder Text"
+fit_content = true
+
+[node name="FlavorText" type="RichTextLabel" parent="."]
+offset_left = 91.0
+offset_top = 154.0
+offset_right = 641.0
+offset_bottom = 439.0
+size_flags_horizontal = 3
+text = "Placeholder Text"

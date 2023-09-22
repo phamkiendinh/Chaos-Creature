@@ -1,0 +1,15 @@
+[gd_scene load_steps=3 format=3 uid="uid://bdtr63bdenv8e"]
+
+[ext_resource type="Script" path="res://Artifact/artifact.gd" id="1_db64q"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_6kv01"]
+size = Vector2(223, 225)
+
+[node name="Artifact" type="TextureButton"]
+script = ExtResource("1_db64q")
+
+[node name="Area" type="Area2D" parent="."]
+
+[node name="Shape" type="CollisionShape2D" parent="Area"]
+position = Vector2(112.5, 112.5)
+shape = SubResource("RectangleShape2D_6kv01")

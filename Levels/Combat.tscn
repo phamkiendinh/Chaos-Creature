@@ -1,0 +1,38 @@
+[gd_scene load_steps=5 format=3 uid="uid://dhsln8s4yxlyc"]
+
+[ext_resource type="Script" path="res://Levels/combat.gd" id="1_sdx1s"]
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_6rsrm"]
+load_path = "res://.godot/imported/mumu1.jpg-a2f123003a3c63c28a36717c55a76d42.ctex"
+
+[sub_resource type="Theme" id="Theme_6ak0n"]
+
+[sub_resource type="SystemFont" id="SystemFont_afpa0"]
+
+[node name="Combat" type="Node2D"]
+script = ExtResource("1_sdx1s")
+
+[node name="BG" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(588, 352)
+scale = Vector2(0.24, 0.24)
+texture = SubResource("CompressedTexture2D_6rsrm")
+
+[node name="Button" type="Button" parent="."]
+visible = false
+offset_left = 1088.0
+offset_top = 593.0
+offset_right = 1144.0
+offset_bottom = 624.0
+text = "Next"
+
+[node name="Text" type="TextEdit" parent="."]
+visible = false
+offset_left = 74.0
+offset_top = 91.0
+offset_right = 605.0
+offset_bottom = 479.0
+theme = SubResource("Theme_6ak0n")
+theme_override_fonts/font = SubResource("SystemFont_afpa0")
+theme_override_font_sizes/font_size = 50
+highlight_all_occurrences = true

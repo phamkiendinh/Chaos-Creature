@@ -1,0 +1,83 @@
+[gd_scene load_steps=12 format=3 uid="uid://dv5rb78vmsax0"]
+
+[ext_resource type="Script" path="res://Hero/hero_2/hero_2.gd" id="1_mndfm"]
+[ext_resource type="Texture2D" uid="uid://uvtgj1bb5ocx" path="res://Hero/hero_2/Actor3-5 sheet.png" id="2_3ccu8"]
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_ctp3c"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kkjjc"]
+atlas = ExtResource("2_3ccu8")
+region = Rect2(1002, 400, 334, 200)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8ada7"]
+atlas = ExtResource("2_3ccu8")
+region = Rect2(1336, 400, 334, 200)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mdm2i"]
+atlas = ExtResource("2_3ccu8")
+region = Rect2(1670, 400, 334, 200)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_yugvd"]
+atlas = ExtResource("2_3ccu8")
+region = Rect2(0, 0, 334, 200)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ub80i"]
+atlas = ExtResource("2_3ccu8")
+region = Rect2(334, 0, 334, 200)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wvbiw"]
+atlas = ExtResource("2_3ccu8")
+region = Rect2(668, 0, 334, 200)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_gxqw5"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kkjjc")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8ada7")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mdm2i")
+}],
+"loop": true,
+"name": &"Attack",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_yugvd")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ub80i")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wvbiw")
+}],
+"loop": true,
+"name": &"Idle",
+"speed": 5.0
+}]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_20u4a"]
+radius = 57.43
+height = 200.99
+
+[node name="Hero2" type="CharacterBody2D"]
+position = Vector2(100, 100)
+script = ExtResource("1_mndfm")
+
+[node name="Sprite2D" type="StaticBody2D" parent="."]
+position = Vector2(0, 100)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Sprite2D"]
+shape = SubResource("WorldBoundaryShape2D_ctp3c")
+
+[node name="CharacterBody2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_gxqw5")
+animation = &"Idle"
+autoplay = "Idle"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CapsuleShape2D_20u4a")

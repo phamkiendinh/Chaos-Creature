@@ -1,0 +1,70 @@
+[gd_scene load_steps=5 format=3 uid="uid://b6aeek2ew6fxm"]
+
+[ext_resource type="Script" path="res://damage_number.gd" id="1_cucf3"]
+
+[sub_resource type="Animation" id="Animation_uqy0j"]
+length = 0.001
+tracks/0/type = "bezier"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("LabelContainer:modulate:a")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(1, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+
+[sub_resource type="Animation" id="Animation_jvgp1"]
+resource_name = "scale_x"
+tracks/0/type = "bezier"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("LabelContainer:modulate:a")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"handle_modes": PackedInt32Array(0, 0, 0, 0),
+"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0, 1, -0.25, 0, 0.25, 0, 1, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0, 0.2, 0.3, 1)
+}
+tracks/1/type = "method"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(1),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"queue_free"
+}]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_wtc7g"]
+_data = {
+"RESET": SubResource("Animation_uqy0j"),
+"scale_x": SubResource("Animation_jvgp1")
+}
+
+[node name="DamageNumber" type="Node2D"]
+script = ExtResource("1_cucf3")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+autoplay = "scale_x"
+libraries = {
+"": SubResource("AnimationLibrary_wtc7g")
+}
+
+[node name="LabelContainer" type="Node2D" parent="."]
+self_modulate = Color(1, 1, 1, 0.956863)
+scale = Vector2(2, 2)
+
+[node name="Label" type="Label" parent="LabelContainer"]
+offset_right = 429.0
+offset_bottom = 191.0
+text = "HUH!"
+uppercase = true

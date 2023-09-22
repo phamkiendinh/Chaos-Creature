@@ -1,0 +1,227 @@
+[gd_scene load_steps=16 format=3 uid="uid://lgsdqiqjq8ma"]
+
+[ext_resource type="Script" path="res://Player/PlayerField/player_field.gd" id="1_k5gfq"]
+[ext_resource type="Texture2D" uid="uid://oceux3oofwqd" path="res://Assets/CardBorders/card_player_deck.png" id="2_a15dj"]
+[ext_resource type="PackedScene" uid="uid://dmh4bju384et1" path="res://BattleScene/Slots/hero_card_slot.tscn" id="3_gtfbl"]
+[ext_resource type="Texture2D" uid="uid://clji61hbv50ht" path="res://Assets/Backgrounds/jotunheim/jotunheim.png" id="5_478qt"]
+[ext_resource type="PackedScene" uid="uid://bbqt43jbxj24m" path="res://Hero/Hero.tscn" id="5_jx1ug"]
+[ext_resource type="Shader" path="res://Player/PlayerField/card_description.gdshader" id="6_3u80e"]
+[ext_resource type="Texture2D" uid="uid://c0mfhtht5r7af" path="res://Assets/Units/valkyrie/valkyrie.png" id="7_j0wk5"]
+[ext_resource type="LabelSettings" uid="uid://dylj1rtt5h135" path="res://Player/PlayerField/player_field.tres" id="8_rhsbd"]
+
+[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_jccg1"]
+
+[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_8a2im"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_8ionc"]
+content_margin_left = 5.0
+content_margin_top = 5.0
+content_margin_right = 5.0
+content_margin_bottom = 5.0
+bg_color = Color(1, 0.141176, 0.8, 1)
+border_width_left = 5
+border_width_top = 5
+border_width_right = 5
+border_width_bottom = 5
+border_color = Color(1, 0.960784, 0, 1)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+corner_detail = 10
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_rrpcv"]
+shader = ExtResource("6_3u80e")
+shader_parameter/color = Vector4(1, 0, 0, 1)
+shader_parameter/width = 2.0
+shader_parameter/pattern = 0
+shader_parameter/inside = true
+shader_parameter/add_margins = true
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_mcbqm"]
+content_margin_left = 5.0
+content_margin_top = 5.0
+content_margin_right = 5.0
+content_margin_bottom = 5.0
+bg_color = Color(0, 0, 0, 1)
+border_width_left = 3
+border_width_top = 3
+border_width_right = 3
+border_width_bottom = 3
+border_color = Color(0.8, 0.929412, 0, 1)
+border_blend = true
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_w7n3s"]
+bg_color = Color(0, 0, 0, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.8, 0.8, 0, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[sub_resource type="LabelSettings" id="LabelSettings_q2wgd"]
+font_size = 35
+font_color = Color(0, 1, 0, 1)
+outline_color = Color(1, 1, 0.152941, 1)
+
+[node name="PlayerField" type="Node2D"]
+script = ExtResource("1_k5gfq")
+
+[node name="Deck" type="Sprite2D" parent="."]
+rotation = 1.5708
+texture = ExtResource("2_a15dj")
+centered = false
+
+[node name="HeroCardSlot" parent="." instance=ExtResource("3_gtfbl")]
+
+[node name="Hand" type="Node" parent="."]
+
+[node name="Hero" parent="." instance=ExtResource("5_jx1ug")]
+
+[node name="Window" type="Window" parent="."]
+title = "Card Description "
+unresizable = true
+always_on_top = true
+transparent = true
+popup_window = true
+extend_to_title = true
+theme_override_colors/title_color = Color(0, 0.980392, 0.980392, 1)
+theme_override_colors/title_outline_modulate = Color(0, 0, 0, 1)
+theme_override_constants/title_outline_size = 100
+theme_override_constants/title_height = 160
+theme_override_constants/resize_margin = 10
+theme_override_constants/close_h_offset = 180
+theme_override_constants/close_v_offset = 100
+theme_override_font_sizes/title_font_size = 90
+theme_override_icons/close = SubResource("PlaceholderTexture2D_jccg1")
+theme_override_icons/close_pressed = SubResource("PlaceholderTexture2D_8a2im")
+theme_override_styles/embedded_border = SubResource("StyleBoxFlat_8ionc")
+
+[node name="Panel" type="Panel" parent="Window"]
+top_level = true
+offset_right = 40.0
+offset_bottom = 40.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="Container" type="HBoxContainer" parent="Window/Panel"]
+layout_mode = 0
+offset_right = 292.0
+offset_bottom = 212.0
+
+[node name="Background" type="Sprite2D" parent="Window/Panel/Container"]
+texture = ExtResource("5_478qt")
+offset = Vector2(400, 0)
+region_enabled = true
+region_rect = Rect2(-274.755, -980.844, 1853.5, 2426.95)
+
+[node name="Image" type="TextureButton" parent="Window/Panel/Container"]
+material = SubResource("ShaderMaterial_rrpcv")
+layout_mode = 2
+size_flags_horizontal = 3
+texture_normal = ExtResource("7_j0wk5")
+ignore_texture_size = true
+stretch_mode = 0
+
+[node name="Container" type="VBoxContainer" parent="Window/Panel/Container"]
+layout_mode = 2
+size_flags_horizontal = 3
+alignment = 1
+
+[node name="Name" type="HBoxContainer" parent="Window/Panel/Container/Container"]
+layout_mode = 2
+size_flags_vertical = 3
+alignment = 1
+
+[node name="Element" type="Label" parent="Window/Panel/Container/Container/Name"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_styles/normal = SubResource("StyleBoxFlat_mcbqm")
+text = " Name"
+label_settings = ExtResource("8_rhsbd")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Text" type="Label" parent="Window/Panel/Container/Container/Name"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_styles/normal = SubResource("StyleBoxFlat_w7n3s")
+label_settings = SubResource("LabelSettings_q2wgd")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Attack" type="HBoxContainer" parent="Window/Panel/Container/Container"]
+layout_mode = 2
+size_flags_vertical = 3
+alignment = 1
+
+[node name="Element" type="Label" parent="Window/Panel/Container/Container/Attack"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_styles/normal = SubResource("StyleBoxFlat_mcbqm")
+text = "Attack"
+label_settings = ExtResource("8_rhsbd")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Text" type="Label" parent="Window/Panel/Container/Container/Attack"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_styles/normal = SubResource("StyleBoxFlat_w7n3s")
+label_settings = SubResource("LabelSettings_q2wgd")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Ability" type="HBoxContainer" parent="Window/Panel/Container/Container"]
+layout_mode = 2
+size_flags_vertical = 3
+alignment = 1
+
+[node name="Element" type="Label" parent="Window/Panel/Container/Container/Ability"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_styles/normal = SubResource("StyleBoxFlat_mcbqm")
+text = "Ability"
+label_settings = ExtResource("8_rhsbd")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Text" type="Label" parent="Window/Panel/Container/Container/Ability"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_styles/normal = SubResource("StyleBoxFlat_w7n3s")
+label_settings = SubResource("LabelSettings_q2wgd")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Description" type="HBoxContainer" parent="Window/Panel/Container/Container"]
+layout_mode = 2
+size_flags_vertical = 3
+alignment = 1
+
+[node name="Element" type="Label" parent="Window/Panel/Container/Container/Description"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_styles/normal = SubResource("StyleBoxFlat_mcbqm")
+text = "Description"
+label_settings = ExtResource("8_rhsbd")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Text" type="RichTextLabel" parent="Window/Panel/Container/Container/Description"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_colors/default_color = Color(0, 1, 0, 1)
+theme_override_font_sizes/normal_font_size = 25
+theme_override_styles/normal = SubResource("StyleBoxFlat_mcbqm")
+text = "Description"
+
+[connection signal="close_requested" from="Window" to="." method="_on_window_close_requested"]

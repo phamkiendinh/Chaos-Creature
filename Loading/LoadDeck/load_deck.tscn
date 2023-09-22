@@ -1,0 +1,29 @@
+[gd_scene load_steps=4 format=3 uid="uid://cl2lybo5okjjo"]
+
+[ext_resource type="Script" path="res://Loading/LoadDeck/load_deck.gd" id="1_x3vr6"]
+
+[sub_resource type="Gradient" id="Gradient_utc1h"]
+offsets = PackedFloat32Array(0, 0.00597015, 0.322388, 0.659701, 0.997015)
+colors = PackedColorArray(0.796078, 0.6, 0.0901961, 1, 0.8, 0.607843, 0, 1, 0.784314, 0.356863, 0.243137, 1, 0.768627, 0.541176, 0.894118, 1, 0.368627, 1, 1, 1)
+
+[sub_resource type="Gradient" id="Gradient_w3mbj"]
+offsets = PackedFloat32Array(0, 0.292537, 0.659701, 1)
+colors = PackedColorArray(0.368627, 1, 1, 1, 0.768627, 0.541176, 0.894118, 1, 0.784314, 0.356863, 0.243137, 1, 0.796078, 0.6, 0.0901961, 1)
+
+[node name="loading" type="Node2D"]
+script = ExtResource("1_x3vr6")
+
+[node name="LeftLine" type="Line2D" parent="."]
+default_color = Color(1, 0.164706, 0, 1)
+gradient = SubResource("Gradient_utc1h")
+
+[node name="Text" type="RichTextLabel" parent="."]
+offset_right = 192.0
+offset_bottom = 69.0
+theme_override_font_sizes/normal_font_size = 45
+text = "Loading."
+fit_content = true
+autowrap_mode = 0
+
+[node name="RightLine" type="Line2D" parent="."]
+gradient = SubResource("Gradient_w3mbj")

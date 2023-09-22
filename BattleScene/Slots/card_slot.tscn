@@ -1,0 +1,23 @@
+[gd_scene load_steps=4 format=3 uid="uid://top4n6bmkb53"]
+
+[ext_resource type="Script" path="res://BattleScene/Slots/card_slot.gd" id="1_t3qrd"]
+[ext_resource type="Texture2D" uid="uid://c0d2s7bbh6afn" path="res://Assets/CardBorders/01 Border 01.png" id="2_3yf5b"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_j2567"]
+size = Vector2(426, 332)
+
+[node name="CardSlot" type="Area2D"]
+script = ExtResource("1_t3qrd")
+
+[node name="Shape" type="CollisionShape2D" parent="."]
+top_level = true
+position = Vector2(212, 166)
+shape = SubResource("RectangleShape2D_j2567")
+debug_color = Color(0.756863, 0.423529, 0.447059, 0.419608)
+
+[node name="Image" type="Sprite2D" parent="."]
+scale = Vector2(6.73016, 5.13846)
+texture = ExtResource("2_3yf5b")
+centered = false
+region_enabled = true
+region_rect = Rect2(64.8784, -0.288128, 62.242, 63.9177)

@@ -1,0 +1,39 @@
+[gd_scene load_steps=5 format=3 uid="uid://bp30ni53hdwt6"]
+
+[ext_resource type="Script" path="res://BattleScene/Animation/smoke_anim.gd" id="1_xukin"]
+[ext_resource type="Texture2D" uid="uid://b15rnkg5haa66" path="res://BattleScene/Animation/smoke.png" id="2_jlowh"]
+
+[sub_resource type="Animation" id="Animation_sgc1k"]
+resource_name = "smoke_anim"
+length = 0.25
+step = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(-0.001, 0.041, 0.086, 0.129, 0.171, 0.213),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3, 4, 5]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_10m81"]
+_data = {
+"smoke_anim": SubResource("Animation_sgc1k")
+}
+
+[node name="smoke_anim" type="Node2D"]
+script = ExtResource("1_xukin")
+
+[node name="smoke" type="Sprite2D" parent="."]
+texture = ExtResource("2_jlowh")
+hframes = 6
+frame = 5
+
+[node name="smokeAnimPlayer" type="AnimationPlayer" parent="smoke"]
+libraries = {
+"": SubResource("AnimationLibrary_10m81")
+}
